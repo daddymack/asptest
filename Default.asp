@@ -3,9 +3,11 @@
 
 <html> 
 <head><title>Test</title>
-    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
+    
 
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
 
     <link rel="canonical" href="http://www.example.com" />
     
@@ -31,5 +33,10 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
         })();
     </script>
+
+    <form name="input" action="" method="post">
+        Text to post:<br /> <input type="text" name="text_to_post" id="text_to_post" size="200"/><br/>
+        <input type="submit" name="btnSubmit" value="Submit"/>
+    </form>
 </body> 
 </html>
