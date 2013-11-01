@@ -1,42 +1,44 @@
-<%@ LANGUAGE="VBSCRIPT" %>
-<%Option Explicit%>
-
+<!--#include file="oauth/_inc/_base.asp"-->
+<%
+	Dim blnLoggedIn : blnLoggedIn = False
+	Dim strScreenName : strScreenName = Session(TWITTER_SCREEN_NAME)
+	
+	If Not IsNull(strScreenName) And strScreenName <> "" Then
+		blnLoggedIn = True
+	End If
+%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html> 
 <head><title>Test</title>
     
 
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-    <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script>
-
-    <link rel="canonical" href="http://www.example.com" />
+    
+		<link href="http://yui.yahooapis.com/3.1.0/build/cssreset/reset-min.css" rel="stylesheet" type="text/css">
+		<link href="css/base.css" rel="stylesheet" type="text/css">
+		<meta content="This page hosts an example of a Generic Classic ASP VBScript OAuth Library in action. The example uses Twitter's OAuth Authentication Flow to illustrate usage. The project in its entirety, with full source code, is available for download." name="description">
+		<script language="javascript">
+			var OAUTH_VBSCRIPT = {
+				loggedIn: <%=LCase(CStr(blnLoggedIn))%>,
+				screenName: '<%=strScreenName%>'
+			};
+		</script>
     
 </head> 
 <body> 
+    <div id="sign_out_container">
+				<b>Logged in as:</b> <span id="screen_name"></span> [<a href="sign_out.asp" target="_blank" id="sign_out">sign out</a>]
+				<br>
+				<textarea id="tweet_textarea" name="tweet_textarea">test tweet</textarea>
+				<br>
+				<input type="button" value="post to twitter" id="tweet_tools_button" NAME="tweet_tools_button">
+			</div>
+			<div id="sign_in_container">
+				<a href="twitter/authenticate.asp" target="_blank" id="sign_in">
+					<img src="css/assets/Sign-in-with-Twitter-lighter.png" border=0></img>
+				</a>
+			</div>
 
-	<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a> <br />
-	
-    <iframe src="//www.facebook.com/plugins/like.php?href=http://www.shopgoodwill.com/viewitem.asp?ItemID%3D14577392&amp;send=false&amp;layout=standard&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:35px;" allowTransparency="true" align="middle"></iframe> <br />
-	
-	<a data-pin-config="beside" href="http://pinterest.com/pin/create/button/?url=http://www.shopgoodwill.com/auctions/You-Cant-Scare-Me-14577392.html&media=http://images.shopgoodwill.com/127/10-25-2013/sa36825191025-sa.jpg&description=shopgoodwill.com: You Can't Scare Me" data-pin-do="buttonPin" ><img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" /></a> <br />
-
-    <g:plusone></g:plusone>
-
-    <script type="text/javascript">
-        window.___gcfg = {
-            lang: 'en-US'
-        };
-
-        (function() {
-            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-            po.src = 'https://apis.google.com/js/plusone.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-        })();
-    </script>
-
-    <form name="input" action="" method="post">
-        Text to post:<br /> <input type="text" name="text_to_post" id="text_to_post" size="200"/><br/>
-        <input type="submit" name="btnSubmit" value="Submit"/>
-    </form>
+			<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
+			<script src="js/base.js"></script>
 </body> 
 </html>

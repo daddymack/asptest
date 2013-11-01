@@ -1,0 +1,17 @@
+<%
+	' CREDENTIALS
+	Const OAUTH_EXAMPLE_CONSUMER_KEY		= "kwUmtyks8oqhBlWf5AxWw"
+	Const OAUTH_EXAMPLE_CONSUMER_SECRET		= "RsI96V5jIRo78MYm7QydNV7P8HmZJP0lCeR3GYwVk"
+
+	' OPTIONS
+	Const OAUTH_EXAMPLE_FORCE_LOGIN			= True
+
+	' CALLBACK URL
+	Const OAUTH_EXAMPLE_CALLBACK_URL		= "http://192.168.11.1:8383/twitter/callback.asp" 'PROD
+
+	' REDIRECT URLS
+	Const OAUTH_EXAMPLE_ERROR_URL			= "error.asp"
+	Const OAUTH_EXAMPLE_LOGIN_FAILURE_URL	= "log_in_failure.asp"
+	Const OAUTH_EXAMPLE_LOGIN_SUCCESS_URL	= "log_in_success.asp"
+	Const OAUTH_EXAMPLE_TIMEOUT_URL			= "timeout.asp"
+%>
