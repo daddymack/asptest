@@ -7,7 +7,7 @@
 	Const OAUTH_EXAMPLE_FORCE_LOGIN			= True
 
 	' CALLBACK URL
-	Const OAUTH_EXAMPLE_CALLBACK_URL		= "http://192.168.11.1:8383/twitter/callback.asp" 'PROD
+	Const OAUTH_EXAMPLE_CALLBACK_URL		= "http://localhost:8383/twitter/callback.asp" 'PROD
 
 	' REDIRECT URLS
 	Const OAUTH_EXAMPLE_ERROR_URL			= "error.asp"

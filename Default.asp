@@ -12,7 +12,7 @@
 <html> 
 <head><title>Test</title>
         
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="_private/js/jquery-1.10.2.min.js"></script>
     
 		<link href="http://yui.yahooapis.com/3.1.0/build/cssreset/reset-min.css" rel="stylesheet" type="text/css">
 		<link href="css/base.css" rel="stylesheet" type="text/css">
@@ -23,7 +23,7 @@
 				screenName: '<%=strScreenName%>'
 			};
             
-    
+        </script>
 </head> 
 <body> 
             <div id="sign_out_container">
@@ -42,6 +42,9 @@
 			<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
 			<script src="js/base.js"></script>
 
-            <div id="fb-root"></div>
+            <form action="facebook/post.asp">
+                <input type="submit" name="fbpost" value="Post to Facebook"/>
+            </form>
+            <div id="fb"></div>
 </body> 
 </html>
