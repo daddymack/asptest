@@ -26,12 +26,16 @@
         </script>
 </head> 
 <body> 
+            <form action="facebook/post.asp">
+                <input type="submit" name="fbpost" value="Post to Facebook"/>
+            </form>
+
             <div id="sign_out_container">
 				<b>Logged in as:</b> <span id="screen_name"></span> [<a href="sign_out.asp" target="_blank" id="sign_out">sign out</a>]
 				<br>
-				<textarea id="tweet_textarea" name="tweet_textarea">test tweet</textarea>
+				<textarea id="tweet_textarea" name="tweet_textarea" rows="4" cols="50"></textarea>
 				<br>
-				<input type="button" value="post to twitter" id="tweet_tools_button" NAME="tweet_tools_button">
+				<input type="button" value="Post to Twitter" id="tweet_tools_button" NAME="tweet_tools_button">
 			</div>
 			<div id="sign_in_container">
 				<a href="twitter/authenticate.asp" target="_blank" id="sign_in">
@@ -42,9 +46,5 @@
 			<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
 			<script src="js/base.js"></script>
 
-            <form action="facebook/post.asp">
-                <input type="submit" name="fbpost" value="Post to Facebook"/>
-            </form>
-            <div id="fb"></div>
 </body> 
 </html>
