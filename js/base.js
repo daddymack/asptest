@@ -12,14 +12,16 @@ YUI().use('node', 'io', function(Y){
 	// The container element that will encapsulate 
 	// the logged in user's screen name
 	var _elScreenName = Y.one('#screen_name');
-
+	var _elScreenName_fb = Y.one('#screen_name_fb');
 	// The container encapsulating the "sign in" 
 	// elements
 	var _elSignIn = Y.one('#sign_in_container');
+	var _elSignIn_fb = Y.one('#sign_in_container_fb');
 
 	// The container encapsulating the "sign out" 
 	// elements
 	var _elSignOut = Y.one('#sign_out_container');
+	var _elSignOut_fb = Y.one('#sign_out_container_fb');
 
 	// The actual textarea form element used for the 
 	// tweet post input. The value of the element IS 
@@ -119,7 +121,18 @@ YUI().use('node', 'io', function(Y){
 			_elSignIn.setStyle('display', 'block');
 			_elSignOut.setStyle('display', 'none');
 			_elScreenName.set('innerHTML', '');
-		}
+        }
+
+        if (OAUTH_VBSCRIPT_FB.loggedIn_fb) {
+            _elSignIn_fb.setStyle('display', 'none');
+            _elSignOut_fb.setStyle('display', 'block');
+            _elScreenName_fb.set('innerHTML', OAUTH_VBSCRIPT_FB.screenName_fb);
+        }
+        else {
+            _elSignIn_fb.setStyle('display', 'block');
+            _elSignOut_fb.setStyle('display', 'none');
+            _elScreenName_fb.set('innerHTML', '');
+        }
 	};
 
 	// click handler for post
@@ -148,7 +161,29 @@ YUI().use('node', 'io', function(Y){
 				alert('Oops! Try again.');
 			}
 		})
-	}, '#sign_out')
+    }, '#sign_out')
+
+    // click handler for "Sign out"
+    Y.on('click', function (e) {
+        e.preventDefault();
+
+        Y.Get.script('sign_out_fb.asp', {
+            onSuccess: function (o) {
+                // purge the script element
+                o.purge();
+
+                // kill local object member vars
+                OAUTH_VBSCRIPT_FB.loggedIn_fb = false;
+                OAUTH_VBSCRIPT_FB.screenName_fb = null;
+
+                // update UI
+                YUI.oauth_vbscript.checkLoggedIn();
+            },
+            onFailure: function (o) {
+                alert('Oops! Try again.');
+            }
+        })
+    }, '#sign_out_fb')
 		
 	// click handler for "Sign in with Twitter"
 	Y.on('click', function(e){

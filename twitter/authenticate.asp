@@ -6,10 +6,10 @@
 ' Make sure all session variables are non existent. This is NOT recommended for 
 ' your personal project. This is ONLY meant for this example project.
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-Dim Item : For Each Item In Session.Contents
-	Session(Item) = ""
-	Session.Contents.Remove(Item)
-Next
+'Dim Item : For Each Item In Session.Contents
+'	Session(Item) = ""
+'	Session.Contents.Remove(Item)
+'Next
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
