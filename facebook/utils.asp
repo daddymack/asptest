@@ -38,4 +38,4 @@ function GetTextFromUrl(url)
 
   End If
 end function
- %>
+%>

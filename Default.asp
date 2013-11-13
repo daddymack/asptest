@@ -83,7 +83,7 @@
                     type:"POST",
                     url: "facebook/post.asp",
                     dataType: "html",
-                    data: "txtmsg=" + $("#txtmsg").val(),
+                    data: "txtmsg=" + encodeURIComponent($("#txtmsg").val()),
                     async: true,
                     success: function(msg)
                     {
