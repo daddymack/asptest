@@ -1,3 +1,4 @@
+<%@ Language="VBScript"%>
 <!--#include file="oauth/_inc/_base.asp"-->
 <!--#include file="facebook/utils.asp"-->
 <%
@@ -13,19 +14,19 @@
 	End If
 
     dim app_id 
-            app_id = "174723912729791"
-            dim app_secret
-            app_secret = "a41ad1afedaf0fd99bb7a5a666947c3e"
-            dim scope 
-            scope = "publish_stream,manage_pages"
-            dim curURl
-            curURl = "http://localhost:8383/Default.asp"'curPageURL()
+    app_id = "174723912729791"
+    dim app_secret
+    app_secret = "a41ad1afedaf0fd99bb7a5a666947c3e"
+    dim scope 
+    scope = "publish_stream,manage_pages"
+    dim curURl
+    curURl = "http://localhost:8383/Default.asp"'curPageURL()
     if (Request.QueryString("code") <> "") then
         on error resume next
         dim HttpReq, apiURI
         set HttpReq=Server.CreateObject("MSXML2.ServerXMLHTTP")
         apiURI="https://graph.facebook.com/oauth/access_token?client_id=" & app_id & "&redirect_uri=" & curURl & "&scope=" & scope & "&code=" & Request.QueryString("code") & "&client_secret=" & app_secret
-            
+        
         Dim sResult : sResult = GetTextFromUrl(apiURI)
         if sResult <> "" then
             dim arrSplitted, sub_arrSplitted, access_token
@@ -33,7 +34,7 @@
         
             sub_arrSplitted=split(arrSplitted(0),"=")
             access_token=sub_arrSplitted(1)
-        
+            Session("access_token")=access_token
             apiURI="https://graph.facebook.com/me?access_token=" & access_token 
             
         
@@ -76,6 +77,26 @@
 				loggedIn_fb: <%=LCase(CStr(blnLoggedIn_fb))%>,
 				screenName_fb: '<%=strScreenName_fb%>'
 			};
+            function fbpost()
+            {
+                $.ajax({
+                    type:"POST",
+                    url: "facebook/post.asp",
+                    dataType: "html",
+                    data: "txtmsg=" + $("#txtmsg").val(),
+                    async: true,
+                    success: function(msg)
+                    {
+                        alert(msg); 
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) 
+                    {
+                        alert(thrownError);
+                        alert(xhr.status);
+                    }
+                });
+    
+            }
         </script>
 </head> 
 <body> 
@@ -87,10 +108,11 @@
 
             <div id="sign_out_container_fb">
 				<b>Logged in as:</b> <span id="screen_name_fb"></span> [<a href="sign_out_fb.asp" target="_blank" id="sign_out_fb">sign out</a>]
-                <form action="facebook/post.asp" method="post">
-                    <input type="text" id="msg" name="msg" /> <br />
-				    <input type="submit" name="fbpost" value="Post to Facebook"/>
-                </form>
+                <!--<form action="facebook/post.asp" method="post" >-->
+                    <br />
+                    <input type="text" id="txtmsg" name="txtmsg" /> <br />
+				    <input type="button" name="fbpost" value="Post to Facebook" onclick="fbpost();"/>
+                <!--</form>-->
 			</div>
             
                 
