@@ -88,6 +88,7 @@
                     success: function(msg)
                     {
                         alert(msg); 
+                        $("#txtmsg").val('');
                     },
                     error: function (xhr, ajaxOptions, thrownError) 
                     {
@@ -110,7 +111,9 @@
 				<b>Logged in as:</b> <span id="screen_name_fb"></span> [<a href="sign_out_fb.asp" target="_blank" id="sign_out_fb">sign out</a>]
                 <!--<form action="facebook/post.asp" method="post" >-->
                     <br />
-                    <input type="text" id="txtmsg" name="txtmsg" /> <br />
+                    <!--<input type="text" id="txtmsg" name="txtmsg" /> -->
+                    <textarea id="txtmsg" name="txtmsg" rows="4" cols="50"></textarea>
+                    <br /> 
 				    <input type="button" name="fbpost" value="Post to Facebook" onclick="fbpost();"/>
                 <!--</form>-->
 			</div>
