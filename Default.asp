@@ -83,7 +83,7 @@
                     type:"POST",
                     url: "facebook/post.asp",
                     dataType: "html",
-                    data: "txtmsg=" + encodeURIComponent($("#txtmsg").val()),
+                    data: "txtmsg=" + encodeURIComponent($("#txtmsg").val()) + "&txtlink=" + encodeURIComponent($("#txtlink").val()),
                     async: true,
                     success: function(msg)
                     {
@@ -109,21 +109,22 @@
 
             <div id="sign_out_container_fb">
 				<b>Logged in as:</b> <span id="screen_name_fb"></span> [<a href="sign_out_fb.asp" target="_blank" id="sign_out_fb">sign out</a>]
-                <!--<form action="facebook/post.asp" method="post" >-->
-                    <br />
-                    <!--<input type="text" id="txtmsg" name="txtmsg" /> -->
-                    <textarea id="txtmsg" name="txtmsg" rows="4" cols="50"></textarea>
-                    <br /> 
-				    <input type="button" name="fbpost" value="Post to Facebook" onclick="fbpost();"/>
-                <!--</form>-->
+                <br />
+                Message: <br />
+                <textarea id="txtmsg" name="txtmsg" rows="4" cols="130"></textarea>
+                <br /> Link: <br />
+                <textarea id="txtlink" name="txtlink" rows="1" cols="130">http://www.shopgoodwill.com/auctions/Detailed-Carved-Wood-Elephant-Stand-Decor-14658581.html</textarea>
+                <br />
+				<input type="button" name="fbpost" value="Post to Facebook" onclick="fbpost();"/>
+                
 			</div>
             
                 
 
             <div id="sign_out_container">
 				<b>Logged in as:</b> <span id="screen_name"></span> [<a href="sign_out.asp" target="_blank" id="sign_out">sign out</a>]
-				<br>
-				<textarea id="tweet_textarea" name="tweet_textarea" rows="4" cols="50"></textarea>
+				<br> Message/Link: <br />
+				<textarea id="tweet_textarea" name="tweet_textarea" rows="4" cols="130">http://www.shopgoodwill.com/auctions/Detailed-Carved-Wood-Elephant-Stand-Decor-14658581.html</textarea>
 				<br>
 				<input type="button" value="Post to Twitter" id="tweet_tools_button" NAME="tweet_tools_button">
 			</div>

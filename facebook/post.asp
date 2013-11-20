@@ -12,13 +12,13 @@
     dim curURl
     curURl = "http://localhost:8383/Default.asp"'curPageURL()
             
-    dim strURL, para, strLink
-    'strLink = "http://www.shopgoodwill.com/auctions/Detailed-Carved-Wood-Elephant-Stand-Decor-14658581.html"
+    dim strURL, para
                 
     strURL = "https://graph.facebook.com/me/feed"
 
     Dim str : str = Server.UrlEncode(request.form("txtmsg"))
-    para = "?access_token=" & Session("access_token") & "&message=" & str '& "&link=" & strLink 
+    Dim strLink : strLink = Server.UrlEncode(request.form("txtlink"))
+    para = "?access_token=" & Session("access_token") & "&message=" & str & "&link=" & strLink 
     Dim xmlHttp 
     Dim res
 
