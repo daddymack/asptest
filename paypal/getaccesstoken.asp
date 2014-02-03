@@ -1,7 +1,7 @@
 ﻿<%@ Language="VBScript"%>
 <%option explicit%>
-<!--#include file="../utils.asp"-->
-<script language="JScript" runat="server" src='../js/json2.js'></script>
+<!--#include file="utils.asp"-->
+<script language="JScript" runat="server" src='js/json2.js'></script>
 <%
             
     dim client_id 
