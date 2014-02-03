@@ -1,6 +1,7 @@
 ﻿<%@ Language="VBScript"%>
 <%option explicit%>
 <!--#include file="../utils.asp"-->
+<script language="JScript" runat="server" src='../js/json2.js'></script>
 <%
             
     dim client_id 
@@ -27,4 +28,11 @@
     HttpReq.setRequestHeader "Authorization", "Basic " & Base64Encode(client_id & ":" & secret)
     HttpReq.send data
     
+    dim resp, result
+    resp = HttpReq.responseText
+
+	        set HttpReq=Nothing
+	        if resp <> "" Then
+	            set result=JSON.parse(resp)
+            end if
  %>
