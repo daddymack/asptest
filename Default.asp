@@ -101,11 +101,7 @@
         </script>
 </head> 
 <body> 
-            <div id="paypal">
-				<a href="paypal/getaccesstoken.asp" target="" id="paypal">
-					<img src="paypal/images/getpaypaltoken.png" border=0></img>
-				</a>
-			</div>
+            
 
             <div id="sign_in_container_fb">
 				<a href="facebook/authenticate.asp?redirect_uri=http://localhost:8383/Default.asp" target="" id="sign_in_fb">
