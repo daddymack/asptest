@@ -22,9 +22,9 @@ renamed as long as the file extension remains .asp
 ' the parameters for the payment can be configured here
 ' the API Login ID and Transaction Key must be replaced with valid values
 Dim loginID, transactionKey, amount, description, label, testMode, url
-loginID			= "8Tq4rc4PRy45"
-transactionKey	= "9c54Q6R24V6fCYkk"
-amount			= "1.99"
+loginID			= "5z3WNe4p"
+transactionKey	= "86vXJ46fMgW9BP4W"
+amount			= "1.11"
 description		= "Sample Transaction"
 ' The is the label on the 'submit' button
 label			= "Submit Payment"
