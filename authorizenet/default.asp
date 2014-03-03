@@ -24,7 +24,7 @@ renamed as long as the file extension remains .asp
 Dim loginID, transactionKey, amount, description, label, testMode, url
 loginID			= "5z3WNe4p"
 transactionKey	= "86vXJ46fMgW9BP4W"
-amount			= "1.11"
+amount			= "1.12"
 description		= "Sample Transaction"
 ' The is the label on the 'submit' button
 label			= "Submit Payment"
