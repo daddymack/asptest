@@ -68,6 +68,20 @@
 		<link href="css/base.css" rel="stylesheet" type="text/css">
 		<meta content="This page hosts an example of a Generic Classic ASP VBScript OAuth Library in action. The example uses Twitter's OAuth Authentication Flow to illustrate usage. The project in its entirety, with full source code, is available for download." name="description">
         <script language="JScript" runat="server" src='/_private/js/json2.js'></script>
+        <script src="../_private/js/jquery.simplemodal.1.4.4.min.js"></script>
+        <style>
+            #simplemodal-container a.modalCloseImg {
+	            background:url(../_private/js/x.png) no-repeat; /* adjust url as required */
+	            width:25px;
+	            height:29px;
+	            display:inline;
+	            z-index:3200;
+	            position:absolute;
+	            top:-15px;
+	            right:-18px;
+	            cursor:pointer;
+            }
+        </style>
 		<script type="text/javascript">
 			var OAUTH_VBSCRIPT = {
 				loggedIn: <%=LCase(CStr(blnLoggedIn))%>,
@@ -97,6 +111,20 @@
                     }
                 });
     
+            }
+            function search_customer() {
+                var src = "http://365.ericmmartin.com/";
+                $.modal('<iframe src="' + src + '" height="450" width="830" style="border:0">', {
+	                closeHTML:"",
+	                containerCss:{
+		                backgroundColor:"#fff", 
+		                borderColor:"#fff", 
+		                height:450, 
+		                padding:0, 
+		                width:830
+	                },
+	                overlayClose:true
+                });
             }
         </script>
 </head> 
@@ -135,9 +163,9 @@
 					<img src="css/assets/Sign-in-with-Twitter-lighter.png" border=0></img>
 				</a>
 			</div>
-
+            <input type="button" value="Search Buyer" id="Search_Customer" name="Search_Customer" onclick="search_customer();"/>
 			<script src="http://yui.yahooapis.com/3.1.0/build/yui/yui-min.js"></script>
 			<script src="js/base.js"></script>
-
+            
 </body> 
 </html>
